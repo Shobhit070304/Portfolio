@@ -21,7 +21,7 @@ const Banner = () => {
               initial="hidden"
               whileInView={"show"}
               viewport={{ once: false, amount: 0.7 }}
-              className="text-[45px] font-bold leading-[0.8] lg:text-[80px]"
+              className="text-[55px] font-bold leading-[0.8] lg:text-[80px]"
             >
               Shobhit <span>Sharma</span>
             </motion.h1>
@@ -30,8 +30,8 @@ const Banner = () => {
               initial="hidden"
               whileInView={"show"}
               viewport={{ once: false, amount: 0.7 }}
-              className="mb-6 text-[34px] lg:text-[60px] font-secondary
-            font-semibold lg:font-bold uppercase leading-[1] "
+              className="mb-6 text-[36px] lg:text-[60px] font-secondary
+            font-bold lg:font-bold uppercase leading-[1] "
             >
               <span className="text-white mr-4">I am a</span>
               <TypeAnimation
