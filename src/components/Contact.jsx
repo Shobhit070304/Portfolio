@@ -1,14 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { motion } from "framer-motion";
 
 import { fadeIn } from "../variants";
 
 const Contact = () => {
+  const [info, setInfo] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  function handleInfo(e) {
+    setInfo({ ...info, [e.target.name]: e.target.value });
+  }
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log(info);
+    setInfo({ name: "", email: "", message: "" });
+  }
   return (
-    <section className="py-16 lg:selection" id="contact">
+    <section className="min-h-screen py-16 lg:selection flex items-center" id="contact">
       <div className="container mx-auto">
-        <div className="flex flex-col lg:flex-row items-center">
+        <div className="flex flex-col lg:flex-row lg:items-center">
           <motion.div
             variants={fadeIn("right", 0.3)}
             initial="hidden"
@@ -30,21 +44,31 @@ const Contact = () => {
             initial="hidden"
             whileInView={"show"}
             viewport={{ once: false, amount: 0.3 }}
-            className="flex-1 border rounded-2xl flex flex-col gap-y-6 pb-14 p-6 items-start "
+            className="flex-1 border rounded-2xl flex flex-col gap-y-4 lg:gap-y-6 pb-6 lg:pb-14 p-6 items-start "
+            onSubmit={handleSubmit}
           >
             <input
               type="text"
               placeholder="Your name"
+              name="name"
+              value={info.name}
+              onChange={handleInfo}
               className="bg-transparent border-b py-3 outline-none w-full placeholder:text-white focus:border-accent transition-all"
             />
             <input
               type="text"
               placeholder="Your email"
+              name="email"
+              value={info.email}
+              onChange={handleInfo}
               className="bg-transparent border-b py-3 outline-none w-full placeholder:text-white focus:border-accent transition-all"
             />
             <textarea
               className="bg-transparent border-b py-3 outline-none w-full placeholder:text-white focus:border-accent transition-all resize-none mb-12"
               placeholder="Your message"
+              name="message"
+              value={info.message}
+              onChange={handleInfo}
             ></textarea>
             <button className="btn btn-lg">Send message</button>
           </motion.form>
