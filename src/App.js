@@ -7,8 +7,11 @@ import About from "./components/About";
 import Work from "./components/Work";
 import Contact from "./components/Contact";
 import Skills from "./components/Skills";
+import LocomotiveScroll from "locomotive-scroll";
 
 const App = () => {
+  const locomotiveScroll = new LocomotiveScroll();
+
   return (
     <div className="bg-site bg-no-repeat bg-cover overflow-hidden">
       <Header />
